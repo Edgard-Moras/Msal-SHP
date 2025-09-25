@@ -1,3 +1,4 @@
+// src/useAuth.ts
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "./authConfig";
 
@@ -5,7 +6,10 @@ export function useAuth() {
   const { instance, accounts } = useMsal();
 
   const login = async () => {
-    await instance.loginPopup(loginRequest);
+    // Solo se lanza el popup de login en modo de desarrollo
+    if (import.meta.env.DEV) {
+      await instance.loginPopup(loginRequest);
+    }
   };
 
   const logout = () => {

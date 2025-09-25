@@ -3,7 +3,7 @@ export const msalConfig = {
   auth: {
     clientId: `${import.meta.env.VITE_APP_CLIENTE_ID}`, // App registrada en Azure    //
     authority: `https://login.microsoftonline.com/${import.meta.env.VITE_APP_TENANT_ID}`,  
-    redirectUri: "https://ltfb.sharepoint.com/sites/tacama/SitePages/App.aspx",
+    redirectUri: "http://localhost:5173",
   },
 };
 

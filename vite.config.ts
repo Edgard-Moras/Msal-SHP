@@ -4,7 +4,8 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: 'https://ltfb.sharepoint.com/sites/tacama/_catalogs/masterpage/aplicaciones/dist/',
+  base: '',
+  // base: 'https://ltfb.sharepoint.com/sites/tacama/_catalogs/masterpage/aplicaciones/dist/',
   build: {
     rollupOptions: {
       output: {

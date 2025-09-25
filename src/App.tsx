@@ -28,15 +28,6 @@ function App() {
     setNewTitle("")
     loadItems()
   }
-  // useEffect(() => {
-  //   setTimeout(async() => {
-  //     console.log('Login Lanzado')
-  //     await login()
-  //     console.log('Login Terminado')
-      
-  //   }, (0));
-  // }, [])
-  
 
   const handleUpdate = async (id: number, title: string) => {
     const token = await getToken()
@@ -51,7 +42,7 @@ function App() {
     await deleteListItem(token, id)
     loadItems()
   }
-console.log('aaccount1',account);
+
   useEffect(() => {
     console.log('aaccount2',account);
     if (account) loadItems()
@@ -60,12 +51,13 @@ console.log('aaccount1',account);
   return (
     <div style={{ padding: 20 }}>
       <h1>CRUD SharePoint</h1>
-      {!account ? (
+      {/* Muestra el botón de login solo en desarrollo */}
+      {!account && import.meta.env.DEV ? (
         <button onClick={login}>Login</button>
       ) : (
         <>
           <div>
-            <p>Bienvenido: {account.username}</p>
+            <p>Bienvenido: {account?.username}</p>
             <button onClick={logout}>Logout</button>
           </div>
           <div>
